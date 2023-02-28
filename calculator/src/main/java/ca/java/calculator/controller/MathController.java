@@ -11,15 +11,60 @@ import ca.java.calculator.exception.UnsupportedMathOperationException;
 @RequestMapping(value = "/math")
 public class MathController {
 
+	// sum
 	@GetMapping("/sum/{numberOne}/{numberTwo}")
-	private Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo)
-			throws Exception {
+	private Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
 		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
 			throw new UnsupportedMathOperationException("Please set a numeric value");
 		}
 		return convertToDouble(numberOne) + convertToDouble(numberTwo);
 	}
-
+	
+	// subtraction
+	@GetMapping("/subtraction/{numberOne}/{numberTwo}")
+	private Double subtraction(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}
+		return convertToDouble(numberOne) - convertToDouble(numberTwo);
+	}
+	
+	// multiplication
+	@GetMapping("/multiplication/{numberOne}/{numberTwo}")
+	private Double multiplication(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}
+		return convertToDouble(numberOne) * convertToDouble(numberTwo);
+	}
+	
+	// division
+	@GetMapping("/division/{numberOne}/{numberTwo}")
+	private Double division(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}
+		return convertToDouble(numberOne) / convertToDouble(numberTwo);
+	}
+	
+	// average
+	@GetMapping("/average/{numberOne}/{numberTwo}")
+	private Double average(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+		if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}
+		return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
+	}
+	
+	// squareRoot
+	@GetMapping("/squareRoot/{number}")
+	private Double squareRoot(@PathVariable("number") String number) throws Exception {
+		if (!isNumeric(number)) {
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}
+		return (Double) Math.sqrt(convertToDouble(number));
+	}
+	
 	private Double convertToDouble(String strNumber) {
 		if (strNumber == null) {
 			return 0D;
