@@ -12,7 +12,11 @@ import ca.java.person.model.Person;
 public class PersonService {
 
 	private final AtomicLong counter = new AtomicLong();
-
+	
+	public Person create(Person person) {
+		return person;
+	}
+	
 	public Person findById(Long id) {
 		Person person = new Person(counter.incrementAndGet(), "Jean", "Jean", "Montréal, QC", "homme");
 		return person;
