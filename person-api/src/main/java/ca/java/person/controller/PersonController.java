@@ -1,5 +1,7 @@
 package ca.java.person.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,5 +21,10 @@ public class PersonController {
 	@GetMapping("/{id}")
 	public Person findById(@PathVariable("id") Long id) {
 		return service.findById(id);
+	}
+	
+	@GetMapping
+	public List<Person> findAll() {
+		return service.findAll();
 	}
 }
