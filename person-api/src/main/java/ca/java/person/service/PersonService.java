@@ -12,11 +12,15 @@ import ca.java.person.model.Person;
 public class PersonService {
 
 	private final AtomicLong counter = new AtomicLong();
-	
+
 	public Person create(Person person) {
 		return person;
 	}
-	
+
+	public Person update(Person person) {
+		return person;
+	}
+
 	public Person findById(Long id) {
 		Person person = new Person(counter.incrementAndGet(), "Jean", "Jean", "Montréal, QC", "homme");
 		return person;
@@ -34,5 +38,9 @@ public class PersonService {
 
 	private Person mockPerson(int i) {
 		return new Person(counter.incrementAndGet(), "First Name " + i, "Last Name " + i, "Some Address " + i, "Gender");
+	}
+
+	public void delete(Long id) {
+		// TODO : test
 	}
 }
