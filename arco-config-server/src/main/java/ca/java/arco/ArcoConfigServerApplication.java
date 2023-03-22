@@ -11,5 +11,4 @@ public class ArcoConfigServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArcoConfigServerApplication.class, args);
 	}
-
 }
