@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: arco-config-server
-  profiles:
-    active:
-    - native
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/andrerco001/microservices-spring-docker
+          default-label: main
+          search-paths:
+          - 'config-server-repo*'
+          - 'config-server-repo/config*'
